@@ -1,0 +1,117 @@
+{% load static %}
+{% static "images" as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <style>
+        #form2{
+        }
+        h1{
+            font-family: 'Sofia';
+            font-size: 60px;
+            
+        }
+        input{
+            background-color: aliceblue;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 40px;
+            font-family: 'Sofia';
+            font-size: 20px;
+            padding-left: 8px;
+            
+        }
+        input:hover{
+            background-color:lightgrey;
+        }
+        input[type=submit]{
+            background-color: crimson;
+            margin-left: 5%;
+
+        }
+        body{
+            background-image: linear-gradient(to right, rgba(255, 0, 76, 0), hsl(236, 92%, 31%));
+            width: 100%;
+        }
+        #msg{
+            color: cornsilk;
+        }
+        #para{
+            margin-top: 0%;
+        }
+        img{
+            float: left;
+            margin-left: 35px;
+        }
+        @media screen and (max-width: 600px) {
+            #disp {
+              width: 50%;
+              margin-top: 0;
+              margin-left: -15% ;
+            }
+          } 
+          
+
+          #msg{
+            margin-left: 25%;
+            color: black;
+            font-size: 20px;
+          } 
+          #disp{
+            color: white;
+            position:fixed;
+            top: 50%;
+            right: 40%;
+            transform: translate(15%,-45%);
+            max-width: 150%;
+            padding: 2em 3em;
+            text-shadow: 0px 0px 2px #131415;
+            font-family: 'Open Sans', sans-serif;
+          }
+
+    </style>
+</head>
+<body>
+    <a href="{% url 'index' %}"><img src="{% static 'images/lg1.png' %}" width="70" height="70"></a>
+    <div id="disp">
+   
+        <h1 style="text-align: center">Login</h1>
+        
+        <form action="login" method="post" id="form2">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-75">
+                      <input type="text" name="username" placeholder="username"><br><br>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-75">
+                   <input type="password" id="lname" name="password" placeholder="password">
+                  </div>
+                   </div><br>
+                  <div class="row">
+                      <input type="submit" value="Submit">
+                  </div>
+        </form><br><br>
+    <p id="para" class="col-75">Not registerd? <a href="register">Create Account..</a></p>
+        <div id="msg">
+            <br><br><br>
+            {% for messages in messages %}
+            <h3>{{messages}}</h3>
+            {% endfor %}
+        </div>
+    </div>
+        <div id="particles-js"></div>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.js"></script>
+        <script src="{% static 'js/particles.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
