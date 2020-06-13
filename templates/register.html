@@ -1,0 +1,111 @@
+{% load static %}
+{% static "images" as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <style>
+        img{
+            float: left;
+            margin-left: 35px;
+        }
+        input[type=submit]{
+            background-color: crimson;
+            margin-left: 5%;
+    
+        }
+        h1{
+            font-family: 'Sofia';
+            font-size: 45px;
+            text-align: center;
+        }
+        input{
+            background-color: aliceblue;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 40px;
+            font-size: 20px;
+            padding-left: 8px;
+        }
+        body{
+            background-color:darkslateblue;
+            width: 100%;
+        }
+        a{
+            color: black;
+            margin-left: 50%;
+        }
+        
+          @media screen and (max-width: 600px) {
+            #part {
+              width: 50%;
+              margin-top: 20%;
+              margin-left: -15% ;
+            }
+          } 
+          @media screen and (max-width: 600px) {
+            #logo {
+              width: 5px;
+            }
+          } 
+        #msg{
+            margin-left: 15%;
+            color: black;
+            font-size: 20px;
+            margin-top: -10%;
+          }
+          #part{
+            color: white;
+            position:absolute;
+            top: 40%;
+            right: 40%;
+            transform: translate(25%,-45%);
+            max-width: 150%;
+            padding: 2em 3em;
+            text-shadow: 0px 0px 2px #131415;
+            font-family: 'Open Sans', sans-serif;
+          }
+          #para{
+            margin-left: 10%;
+          } 
+    </style>
+</head>
+<body>
+    <a id="logo" href="{% url 'index' %}"><img src="{% static 'images/lg1.png' %}" width="70" height="70"></a>
+    <div id="part">
+    <h1>Registration Form</h1>
+    <form action="register" method="post" id="form1">
+        {% csrf_token %}
+
+
+        <input type="text" name="first_name" placeholder="First Name"><br><br>
+        <input type="text" name="last_name" placeholder="Last Name"><br><br>
+        <input type="text" name="username" placeholder="Username"><br><br>
+        <input type="email" name="email" placeholder="E-mail"><br><br>
+        <input type="password" name="password1" placeholder="Password"><br><br>
+        <input type="password" name="password2" placeholder="Confirm Password"><br><br><br>
+        <input type="submit" value="Submit">
+        
+    </form><br>
+        <a id="para" href="login"> Login..</a>
+
+        <div id="msg">
+                <br><br>
+                {% for messages in messages %}
+                <h3>{{messages}}</h3>
+                {% endfor %}
+        </div>
+    </div>
+      <div id="particles-js"></div>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.js"></script>
+      <script src="{% static 'js/particles.min.js' %}"></script>
+      <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>
