@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size:45px;
+            color:white;
+        }
+        #abt{
+            color: white;
+            position:fixed;
+            top: 50%;
+            right: 40%;
+            transform: translate(35%,-50%);
+            max-width: 150%;
+            padding: 2em 3em;
+            text-shadow: 0px 0px 2px #131415;
+            font-family: 'Open Sans', sans-serif;
+        }
+        #particle-js{
+            width: 100%;
+            position: absolute;
+            height: 100%;
+        }
+    </style>
+</head>
+<body style="background-color:#00356B;">
+    {% csrf_token %}
+    <h1>About Us</h1>
+    <div id="abt">
+    <p>
+        ‘Travello’ was joined amid 1951, 4 years after Indian Independence.
+        It proceeds most successfully with quality development and capacity to help industry development. 
+        ‘Travello’ India’s head, nodal, biggest and most established Travel and Tourism Association.
+        ‘Travello’s membership of about 2,500+ driving Indian organizations included effectively with Tourism conveys to its individuals steady direction from our 20 Regional Units, which is extraordinary to ‘Travello’ and its improvement of Leadership.
+        Every unit has a chosen Chairman, Secretary and Treasurer to adequately direct.
+        Part organizations get the opportunity to meet consistently. We bolster street appears; introductions; communication on industry refreshes, generally viably.
+        'Travello’ is effectively connected with the Jio and TATA.
+        As individuals from TATA”s APJC (Agency Program Joint Council)we banter on issues on Travelling rehearses. 
+        ‘Travello’s’ dynamic Airlines Council interfaces ‘Travello’ with Domestic and International Airlines.
+        ‘Travello’ works intimately with the Ministry of Tourism, Government of India.
+        We effectively take an interest in the Tourism Meetings gathered by the Government.
+        We are effectively connected with State Tourism Boards of India.
+        ‘Travello’ has an extensive participation who is effectively associated with a few industry verticals, and along these lines its center is to advance these viably and interface individuals with circumstances.</p>
+    </div>
+    
+    <div id="particles-js"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.js"></script>
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    
+    
+
+    
+   
+</body>
+</html>
