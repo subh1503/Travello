@@ -1,0 +1,59 @@
+{% load static %}
+{% static "images" as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/auth.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <style>
+      
+    </style>
+</head>
+<body style="background-color: #00356B;">
+    <a id="logo" href="{% url 'index' %}"><img src="{% static 'images/logot.png' %}" width="70" height="70" style="float: left; margin-left: 35px;margin-top: 20px;"></a>
+    <div class="row contact d-flex" style="width: 60%; margin: auto; margin-top: 80px;">
+        <div class="col-md-6 contact-msg d-flex justify-content-center flex-column">
+            <div class="contact-left">
+                <div class="d-flex flex-row contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <div class="d-flex flex-column">
+                        <p>General Support</p>
+                        <p style="color: #34DBA3;">TripJet@gmail.com</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row contact-detail">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div class="d-flex flex-column">
+                        <p>Let's Talk</p>
+                        <p style="color: #34DBA3;">+91 99999 99999</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="d-flex flex-column">
+                        <p>Address</p>
+                        <p style="color: #34DBA3;">Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form action="#" class="contact-form d-flex flex-column align-items-center" style="background-color: #FFFFFF; height: 100%;">
+                {% csrf_token %}
+                <h4>Send Us A Message</h4>
+                <input type="text" name="full_name" id="contact_name" placeholder="Full Name">
+                <input type="email" name="email" id="contact_email" placeholder="Email">
+                <textarea name="message" id="contact_msg" placeholder="Message"></textarea>
+                <span class="txt2 form-status mb-2"></span>
+                <button type="submit" class=" d-flex align-items-center justify-content-center send" style="">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
